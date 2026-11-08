@@ -1,1 +1,0 @@
-function [rjs,r] = surfjac(ieles,nnps,nqpts,dnds,nps,x,y)%  computes surface jacobian termsfor i=1:1:nqpts    r1=0.0;    r2=0.0;    for j=1:1:nnps            J=nps(ieles,j);      r1=r1+dnds(j,i)*x(J);      r2=r2+dnds(j,i)*y(J);    end      rjs(i)=sqrt(r1^2+r2^2);    rtang(i)=atan2(r1,r2);    r(1:2,i)=[r2;-r1]/rjs(i);	  endreturnend
